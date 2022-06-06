@@ -1,6 +1,7 @@
 from svgpathtools import svg2paths
 import numpy as np
 from collections import Counter
+#from getsvg import get_converted_svg
 
 def hex_to_rgb(value):
     value = value.lstrip('#')
@@ -64,42 +65,34 @@ def grayscale_array_to_string(array, ascii_values, index, message, ascii, contra
             position = position + 1
     return string
 
-def select_characters():
-    ascii = input("""Select character type: 
-
-    1. Block elements ██▓▓▒▒░░
-    2. Special characters @ & / * .
-    3. Terraforms biome #85 ♛ ♜ ♖ ░ ♘
-    4. Terraforms biome #22 🏔 ☎ ▒ ░ ☆  
-    5. Terraforms biome #27 🖳 ♖ ░ 🗠
-    6. Terraforms biome #41 🕱 ⛓ 🕈 ▒ ░
-    7. Kanji 亹 乨 乃 个 丷
-    8. Custom characters: type 5 characters from darkest to lightest with a comma between each character (no spaces)
-    
-    """)
-    if ascii == "1":
+def select_characters(selection):
+    if selection == "1":
         return ["██", "▓▓", "▒▒", "░░", "  "]
-    elif ascii == "2":
+    elif selection == "2":
         return ["@@", "&&", "//", "**", ".."]
-    elif ascii == "3":
+    elif selection == "3":
         return ["♛♛","♜♜","♖♖","░░","♘♘"]
-    elif ascii == "4":
+    elif selection == "4":
         return ["🏔🏔","☎☎","▒▒","░░","☆☆"]
-    elif ascii == "5":
+    elif selection == "5":
         return ["🖳🖳","♖♖","░░","░░","🗠🗠"]
-    elif ascii == "6":
+    elif selection == "6":
         return ["🕱🕱","⛓⛓","🕈🕈","▒▒","░░"]
-    elif ascii == "7":
+    elif selection == "7":
         return ["亹","乨","乃","个","丷"]
     else:
-        custom = ascii.split(",")
+        custom = selection.split(",")
         custom_final = []
         for custom_char in custom:
             custom_final.append(custom_char[0]*2)
         return custom_final
 
 
-
+'''ascii = select_characters("1")
+step1 = grayscale_array(get_converted_svg(9498),ascii,0)
+print(step1, "STEP1")
+output = grayscale_array_to_string(step1[0],step1[1],step1[2],step1[3],ascii,1)
+print(output, "OUTPUT")'''
 
 
 
