@@ -22,11 +22,9 @@ def runner(request):
             character_type = form.cleaned_data['character_type']
             ascii = select_characters(character_type)
             step1 = grayscale_array(get_converted_svg(id),ascii,0)
-            print(step1, "STEP1")
             output = grayscale_array_to_string(step1[0],step1[1],step1[2],step1[3],ascii,int(contrast_mode))
-            print(output, "OUTPUT")
             # redirect to a new URL:
-            return HttpResponse(output)
+            return render(request, 'results.html', {'result':output})
 
     # if a GET (or any other method) we'll create a blank form
     else:
