@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+    color: #00cc00;
+    font-family: 'VT323', monospace;
+}
+
+.form-control{
+    background-color: black;
+    color: #00cc00;
+    border-color: black;
+    border: 0px;
+}
+
+pre{
+    font-family: monospace;
+}

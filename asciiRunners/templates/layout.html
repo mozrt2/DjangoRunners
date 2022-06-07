@@ -1,7 +1,10 @@
 <!DOCTYPE html> 
 <html lang="en">
-    <head></head>
-    <body style="background-color: black; color: #00cc00;">
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'asciiRunners/styles.css' %}">
+    </head>
+    <body>
         {% block content %}
         {% endblock %}
     </body>
